@@ -1,0 +1,18 @@
+<html>
+    <p>.</p>
+    <form #login="ngForm" (ngSubmit)="onSubmit()">
+        <h1 class="texto1">Iniciar Sesión</h1><br>
+        <div class="divisionImagen">
+            <img src="../../../assets/img/user.png">
+        </div>
+        <input [(ngModel)]="user.username" name="username" type="text" placeholder="Ingrese su Username"><br><br>
+        <div class="divisionImagen">
+            <img src="../../../assets/img/password.jpg">
+        </div>
+        <input [(ngModel)]="user.password" name="password" type="password" placeholder="Ingrese su contraseña"><br><br>
+        <button type="submit" class="btn btn-primary boton">Iniciar sesion</button><hr>
+        <p class="texto2">¿No tienes cuenta?</p>
+        <button class="btn btn-success boton2" routerLink="/register">Crear cuenta</button><br><br>
+    </form><br>
+    <h2 class="texto2">&copy;Grupo #2</h2><br>
+</html>

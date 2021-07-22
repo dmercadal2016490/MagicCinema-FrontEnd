@@ -1,0 +1,53 @@
+html{
+    background-image: url('../../../assets/img/Fondo.PNG');
+    background-size: cover;
+}
+
+form{
+    margin-left: 900px;
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+
+.texto1{
+    color:white;
+    font-family: Calibri;
+    text-align: center;
+    font-size: 60px;
+}
+
+.texto2{
+    color:white;
+    text-align: center;
+
+}
+
+.divisionImagen{
+    float: left;
+    height: 40px;
+    width: 40px;
+    border-style: solid;
+    border-color: lightslategrey;
+}
+
+img{
+    height: 30px;
+    width: 30px;
+    margin: 2px;
+}
+
+input{
+    height: 40px;
+    width: 450px;
+    background-color:transparent;
+    color:white;
+    border-style: solid;
+    border-color: lightgray;
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+button{
+    border-radius: 20px;
+    margin-left: 195px;
+}
