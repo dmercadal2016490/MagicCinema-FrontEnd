@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
   {path:'', component:IndexComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'home', component:HomeComponent},
   {path:'navbar', component:NavbarComponent},
+  {path:'user', component:UserComponent},
   {path:'**',component:NotFoundComponent}
 ];
 

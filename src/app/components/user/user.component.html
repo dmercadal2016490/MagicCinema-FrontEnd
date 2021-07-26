@@ -1,0 +1,44 @@
+<body>
+    <p>.</p>
+    <div class="division">
+        <img *ngIf="user.image == null" src="../../../assets/img/user.png">
+        <img *ngIf="user.image" src="{{uri+'getImage/'+user.image}}" alt="Imagen de perfil">
+        <br><h1 class="texto1">Nombre: </h1>
+        <h2 class="texto3"> {{user.name}}</h2><br>
+        <h1 class="texto1">Apellido: </h1>
+        <h2 class="texto3"> {{user.lastname}}</h2><br>
+        <h1 class="texto2">Username: </h1>
+        <h2 class="texto3"> {{user.username}}</h2><br>
+        <h1 class="texto2">email: </h1>
+        <h2 class="texto3"> {{user.email}}</h2><br><br>
+        <button type="button" class="btn btn-success col-lg-3 mx-2" data-bs-toggle="modal" data-bs-target="#myModal">
+            Subir imagen
+        </button>
+    </div><br>
+    <h2>&copy;Grupo #2</h2><br>
+</body>
+
+<!-- MODAL PARA SUBIR IMAGEN DE USUARIO -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">User image</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3>Elije tu imagen</h3>
+          <form #formUpload="ngForm">
+            <label for="inputImage"></label>
+            <input type="file" name="image" id="inputImage" (change)="fileChange($event)" required>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="uploadImage()">Upload</button>
+        </div>
+      </div>
+    </div>
+  </div>
