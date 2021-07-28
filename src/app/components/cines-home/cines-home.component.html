@@ -1,0 +1,15 @@
+<body>
+    <h1>Cines para visitar!</h1>
+
+    <div class="card text-center" style="width: 90rem;" *ngFor ="let cines of cines">
+        <img src="../../../assets/img/cine.jpg" class="card-img-top" alt="Cine.jpg" id="imagenCine">
+        <div class="card-body">
+          <h5 class="card-title" id="tituloCine">{{cines.name}}</h5>
+          <p class="card-text"><strong>Dirección: </strong>{{cines.direccion}}</p>
+        </div>
+        
+        <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-primary" type="button" (click)="obtenerData(cines)">Ver cine</button>
+        </div>
+    </div>
+</body>

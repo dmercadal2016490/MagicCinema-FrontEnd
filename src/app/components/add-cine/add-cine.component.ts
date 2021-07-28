@@ -12,24 +12,27 @@ import { RestUserService } from 'src/app/services/restUser/rest-user.service';
 export class AddCineComponent implements OnInit {
 
   cine: Cine;
+  cines;
   public user;
   public token;
+  admins;
 
   constructor(private restCine: RestCineService, private router: Router, private restUser: RestUserService) {
     this.user = this.restUser.getUser();
     this.token = this.restUser.getToken();
-
-    this.cine = new Cine('','','',null, null)
+    this.cine = new Cine('','','',[],null, null)
   }
 
   ngOnInit(): void {
+    this.verAdmins();
+    this.admins = localStorage.getItem('admins')
   }
 
   onSubmit(form){
     this.restCine.addCine(this.user._id, this.cine).subscribe((res:any)=>{
       if(res.cineSaved){
         alert(res.message);
-        this.cine = new Cine('','','',null, null)
+        this.cine = new Cine('','','',[],null, null)
         form.reset();
       }else{
         alert(res.message)
@@ -37,4 +40,15 @@ export class AddCineComponent implements OnInit {
     },error=> alert(error.error.message))
   }
 
+  verAdmins(){
+    this.restUser.getAdmins(this.user._id).subscribe((res:any)=>{
+      if(res){
+        this.admins = res.users
+        localStorage.setItem('admins', JSON.stringify(this.admins))
+        console.log(res.users)
+      }else{
+        alert(res.message)
+      }
+    },error=> alert(error.error.message))
+  }
 }

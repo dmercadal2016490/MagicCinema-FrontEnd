@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserComponent } from './components/user/user.component';
 import { AddCineComponent } from './components/add-cine/add-cine.component';
+import { CinesHomeComponent } from './components/cines-home/cines-home.component';
 
 const routes: Routes = [
   {path:'', component:IndexComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'navbar', component:NavbarComponent},
   {path:'user', component:UserComponent},
   {path: 'addCine', component: AddCineComponent},
+  {path: 'cinesHome', component: CinesHomeComponent},
   {path:'**',component:NotFoundComponent},
 ];
 

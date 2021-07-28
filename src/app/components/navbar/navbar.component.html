@@ -10,6 +10,9 @@
                     <a class="nav-link" *ngIf="token == null" routerLink="/index" routerLinkActivate="active">Home</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" *ngIf="token != null || token != undefined" routerLink="/cinesHome" routerLinkActivate="active">Ver Cines</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" *ngIf="token == null" routerLink="/register" routerLinkActivate="active">Register</a>
                   </li>
                   <li class="nav-item">

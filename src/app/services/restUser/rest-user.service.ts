@@ -66,4 +66,9 @@ export class RestUserService {
     return this.http.post(this.uri + 'login' , params, this.httpOptions)
       .pipe(map(this.extractData));
   }
+
+  getAdmins(adminId){
+    return this.http.get(this.uri + 'getAdmins/' + adminId, this.httpOptionsAuth)
+    .pipe(map(this.extractData));
+  }
 }

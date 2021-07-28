@@ -11,7 +11,12 @@
                 <label>Dirección</label>
                 <input class="form-control" [(ngModel)]="cine.direccion" name="direccion" type="text" id="inputDirección" required><br>
             </div>
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="cine.admin" name="admin" required>
+                <option selected disabled>Selecciona un administrador</option>
+                <option value="{{admins._id}}" *ngFor="let admins of admins">{{admins.name}} "{{admins.username}}"</option>
+            </select>
         </div>
+        <br>
         <input type="submit" value="Guardar" class="btn btn-primary" [disabled]="!addCine.form.valid" id="boton">
     </form>
 </body>

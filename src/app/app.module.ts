@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserComponent } from './components/user/user.component';
 import { AddCineComponent } from './components/add-cine/add-cine.component';
+import { CinesHomeComponent } from './components/cines-home/cines-home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AddCineComponent } from './components/add-cine/add-cine.component';
     HomeComponent,
     NavbarComponent,
     UserComponent,
-    AddCineComponent
+    AddCineComponent,
+    CinesHomeComponent
   ],
   imports: [
     BrowserModule,

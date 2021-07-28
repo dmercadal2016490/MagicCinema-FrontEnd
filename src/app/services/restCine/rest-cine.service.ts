@@ -37,4 +37,9 @@ export class RestCineService {
     return this.http.post(this.uri + idAdmin + '/addCine', params, this.httpOptionsAuth)
     .pipe(map(this.extractData))
   }
+
+  getCines(){
+    return this.http.get(this.uri + 'getCines', this.httpOptionsAuth)
+    .pipe(map(this.extractData))
+  }
 }
