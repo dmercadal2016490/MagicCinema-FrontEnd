@@ -1,0 +1,17 @@
+<body>
+    <h1>Agregar Cine</h1>
+
+    <form #addCine="ngForm" (ngSubmit)="onSubmit(addCine)">
+        <div class="addCine">
+            <div>
+                <label>Nombre</label>
+                <input class="form-control" [(ngModel)]="cine.name" name="name" type="text" id="inputName" required><br>
+            </div>
+            <div>
+                <label>Dirección</label>
+                <input class="form-control" [(ngModel)]="cine.direccion" name="direccion" type="text" id="inputDirección" required><br>
+            </div>
+        </div>
+        <input type="submit" value="Guardar" class="btn btn-primary" [disabled]="!addCine.form.valid" id="boton">
+    </form>
+</body>

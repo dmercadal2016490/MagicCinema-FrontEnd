@@ -13,6 +13,7 @@ export class RestUserService {
       'Content-Type': 'application/json',
     })
   };
+  
   public httpOptionsAuth ={
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

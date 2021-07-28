@@ -13,6 +13,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserComponent } from './components/user/user.component';
+import { AddCineComponent } from './components/add-cine/add-cine.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UserComponent } from './components/user/user.component';
     NotFoundComponent,
     HomeComponent,
     NavbarComponent,
-    UserComponent
+    UserComponent,
+    AddCineComponent
   ],
   imports: [
     BrowserModule,
