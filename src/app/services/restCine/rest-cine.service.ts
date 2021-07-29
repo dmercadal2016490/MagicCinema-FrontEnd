@@ -42,4 +42,15 @@ export class RestCineService {
     return this.http.get(this.uri + 'getCines', this.httpOptionsAuth)
     .pipe(map(this.extractData))
   }
+
+  updateCine(idAdmin,cineActualizar){
+    let params = JSON.stringify(cineActualizar)
+    return this.http.put(this.uri+idAdmin+'/updateCine/'+cineActualizar._id, params, this.httpOptionsAuth)
+    .pipe(map(this.extractData))
+  }
+
+  deleteCine(idAdmin, idCine){
+    return this.http.delete(this.uri+idAdmin+'/deleteCine/'+idCine, this.httpOptionsAuth)
+    .pipe(map(this.extractData))
+  }
 }

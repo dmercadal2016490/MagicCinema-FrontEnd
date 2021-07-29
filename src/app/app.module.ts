@@ -31,12 +31,9 @@ import { GolosinasComponent } from './components/golosinas/golosinas.component';
     UserComponent,
     AddCineComponent,
     CinesHomeComponent,
-<<<<<<< Updated upstream
     SaveUserComponent,
     CarteleraComponent,
     GolosinasComponent
-=======
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

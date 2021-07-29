@@ -7,11 +7,50 @@
           <h5 class="card-title" id="tituloCine">{{cines.name}}</h5>
           <p class="card-text"><strong>Dirección: </strong>{{cines.direccion}}</p>
         </div>
-        
-        <div class="d-grid gap-2 d-md-block">
-            <button class="btn btn-primary" type="button" (click)="obtenerData(cines)" id="verCinebtn">Ver Cartelera</button>
-            <button class="btn btn-success" type="button" *ngIf="user._id == cines.admin" id="verCinebtn">Editar</button>
-            <button class="btn btn-danger" type="button" *ngIf="user._id == cines.admin" id="verCinebtn">Eliminar</button>
+
+        <div class="d-grid gap-2 col-2 mx-auto">
+            <button class="btn btn-primary btn-sm" type="button" (click)="obtenerData(cines)" id="verCinebtn">Ver Cartelera</button>
+            <button class="btn btn-success btn-sm" (click)="obtenerData(cines)" type="button" *ngIf="user._id == cines.admin" id="verCinebtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="obtenerData(cines)" type="button" *ngIf="user.role == 'ROLE_ADMIN'" id="verCinebtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" data-bs-backdrop="true">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Editar Cine</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <form>
+                <label for="inputName">Nombre</label>
+                <input [(ngModel)]="cine.name" name="name" #name="ngModel" class="form-control" id="inputName" type="text" placeholder="name" required>
+                <label for="inputDireccion">Descripción</label>
+                <input [(ngModel)]="cine.direccion" name="direccion" #direccion="ngModel" class="form-control" id="inputDireccion" type="text" placeholder="Direccion" required>
+            </form>
+            <br>
+            <div class="d-grid gap-2">
+                <button class="btn btn-success" type="button" (click)="updateCine()">Actualizar Datos</button>
+              </div>
+        </div>
+    </div>
+
+    <!--Modal para eliminar cine-->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">¡Peligro! Esta acción es irreversible</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>¿De verdad deseas eliminar el cine "{{cine.name}}"?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteCine()">Estoy de Acuerdo</button>
+            </div>
+          </div>
         </div>
     </div>
 </body>
