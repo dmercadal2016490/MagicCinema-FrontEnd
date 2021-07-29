@@ -71,4 +71,14 @@ export class RestUserService {
     return this.http.get(this.uri + 'getAdmins/' + adminId, this.httpOptionsAuth)
     .pipe(map(this.extractData));
   }
+
+  saveUser(user, idAdmin){
+    let params = JSON.stringify(user);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.post(this.uri + 'saveUser/' + idAdmin, params, {headers:headers})
+      .pipe(map(this.extractData));
+  }
 }
