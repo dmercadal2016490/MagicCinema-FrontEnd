@@ -20,7 +20,7 @@ export class AddCineComponent implements OnInit {
   constructor(private restCine: RestCineService, private router: Router, private restUser: RestUserService) {
     this.user = this.restUser.getUser();
     this.token = this.restUser.getToken();
-    this.cine = new Cine('','','',[],null, null)
+    this.cine = new Cine('','','','',[],null, null)
   }
 
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class AddCineComponent implements OnInit {
     this.restCine.addCine(this.user._id, this.cine).subscribe((res:any)=>{
       if(res.cineSaved){
         alert(res.message);
-        this.cine = new Cine('','','',[],null, null)
+        this.cine = new Cine('','','','',[],null, null)
         form.reset();
       }else{
         alert(res.message)

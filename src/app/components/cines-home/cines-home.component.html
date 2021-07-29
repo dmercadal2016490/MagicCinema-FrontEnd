@@ -2,7 +2,8 @@
     <h1>Cines para visitar!</h1>
 
     <div class="card text-center" style="width: 90rem;" *ngFor ="let cines of cines">
-        <img src="../../../assets/img/cine.jpg" class="card-img-top" alt="Cine.jpg" id="imagenCine">
+        <img *ngIf="cines.image == null" src="../../../assets/img/cine.jpg" class="card-img-top" alt="Cine.jpg" id="imagenCine">
+        <img *ngIf="cines.image" src="{{uri+'getImageCine/'+cines.image}}" class="card-img-top" alt="Cineimagen.jpg" id="imagenCine">
         <div class="card-body">
           <h5 class="card-title" id="tituloCine">{{cines.name}}</h5>
           <p class="card-text"><strong>Dirección: </strong>{{cines.direccion}}</p>
@@ -12,6 +13,9 @@
             <button class="btn btn-primary btn-sm" type="button" (click)="obtenerData(cines)" id="verCinebtn">Ver Cartelera</button>
             <button class="btn btn-success btn-sm" (click)="obtenerData(cines)" type="button" *ngIf="user._id == cines.admin" id="verCinebtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Editar</button>
             <button class="btn btn-danger btn-sm" (click)="obtenerData(cines)" type="button" *ngIf="user.role == 'ROLE_ADMIN'" id="verCinebtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal" *ngIf="user._id == cines.admin" (click)="obtenerData(cines)">
+              Subir imagen
+          </button>
         </div>
     </div>
 
@@ -54,3 +58,28 @@
         </div>
     </div>
 </body>
+
+<!-- MODAL PARA SUBIR IMAGEN DE CINE -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel">Imagen de cine</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>Elije tu imagen</h3>
+        <form #formUpload="ngForm">
+          <label for="inputImage"></label>
+          <input type="file" name="image" id="inputImage" (change)="fileChange($event)" required>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="subirImage()">Upload</button>
+      </div>
+    </div>
+  </div>
+</div>
