@@ -9,7 +9,9 @@
         </div>
         
         <div class="d-grid gap-2 d-md-block">
-            <button class="btn btn-primary" type="button" (click)="obtenerData(cines)">Ver cine</button>
+            <button class="btn btn-primary" type="button" (click)="obtenerData(cines)" id="verCinebtn">Ver Cartelera</button>
+            <button class="btn btn-success" type="button" *ngIf="user._id == cines.admin" id="verCinebtn">Editar</button>
+            <button class="btn btn-danger" type="button" *ngIf="user._id == cines.admin" id="verCinebtn">Eliminar</button>
         </div>
     </div>
 </body>
