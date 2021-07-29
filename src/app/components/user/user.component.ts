@@ -45,4 +45,35 @@ export class UserComponent implements OnInit {
     console.log(this.filesToUpload)
   }
 
+
+  updateUser(){
+    delete this.user.password;
+    delete this.user.role;
+    this.restUser.updateUser(this.user).subscribe((res:any)=>{
+      if(res.userActualizar){
+        delete res.userUpdated.password;
+        localStorage.setItem('user', JSON.stringify(this.user));
+        alert(res.message);
+      }else{
+        alert(res.message);
+        this.user = this.restUser.getUser();
+      }
+    },
+    (error:any)=>alert(error.error.message)
+    )
+  }
+
+  deleteUser(){
+    this.restUser.deleteUser(this.user._id, this.possiblePass).subscribe((res:any)=>{
+      if(!res.userRemoved){
+        alert(res.message)
+      }else{
+        alert(res.message);
+        localStorage.clear();
+        this.router.navigateByUrl('/index');
+      }
+    },
+    (error:any)=> alert(error.error.message)
+    )
+  }
 }

@@ -81,4 +81,24 @@ export class RestUserService {
     return this.http.post(this.uri + 'saveUser/' + idAdmin, params, {headers:headers})
       .pipe(map(this.extractData));
   }
+
+  updateUser(userActualizar){
+    
+    let params = JSON.stringify(userActualizar);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.put(this.uri + 'updateUser/'+ userActualizar._id, params, {headers:headers})
+    .pipe(map(this.extractData))
+  }
+
+  deleteUser(idUser, password){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.put(this.uri+'deleteUser/'+idUser, {password: password}, {headers: headers})
+    .pipe(map(this.extractData))
+  }
 }

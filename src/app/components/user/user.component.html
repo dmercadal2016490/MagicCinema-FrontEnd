@@ -14,6 +14,12 @@
         <button type="button" class="btn btn-success col-lg-3 mx-2" data-bs-toggle="modal" data-bs-target="#myModal">
             Subir imagen
         </button>
+        <button type="button" class="btn btn-success col-lg-3 mx-2" data-bs-toggle="modal" data-bs-target="#editar">
+          Editar
+        </button>
+        <button type="button" class="btn btn-danger col-lg-3 mx-2" data-bs-toggle="modal" data-bs-target="#eliminar">
+          Eliminar
+        </button>
     </div><br>
     <h2>&copy;Grupo #2</h2><br>
 </body>
@@ -38,6 +44,60 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="uploadImage()">Upload</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<!-- MODAL PARA EDITAR USUARIO -->
+<div class="modal fade" id="editar" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Editar datos</h3>
+      </div>
+      <div class="modal-body">
+        <form>
+          <label for="inputName" >Nombre</label>
+          <input [(ngModel)]="user.name" name="name" #name="ngModel" class="form-control" id="inputName"  type="text" placeholder="name" required>
+          <label for="inputName">Apellido</label>
+          <input [(ngModel)]="user.lastname" name="lastname" #lastname="ngModel" class="form-control" id="inputLastname" type="text" placeholder="lastname" required>
+          <label for="inputUsername">Username</label>
+          <input [(ngModel)]="user.username" name="username" #username="ngModel" class="form-control" id="inputUsername" type="text" placeholder="username" required>
+          <label for="inputEmail">E-mail</label>
+          <input [(ngModel)]="user.email" name="email" #email="ngModel" class="form-control" id="inputEmail" type="email" placeholder="email" required>
+        </form>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secundary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success" (click)="updateUser()" data-bs-dismiss="modal">Actualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+   <!-- MODAL PARA ELIMINAR CUENTA -->
+   <div class="modal fade" id="eliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Peligro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3>Esta accion es irreversible</h3>
+          <span>Ingresa tu contraseña para borrar la cuenta</span>
+          <form #formRemove="ngForm">
+            <label for="passwordRemove"></label>
+            <input [(ngModel)]="possiblePass" type="password" name="possiblePass" id="passwordRemove" required>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-danger" (click)="deleteUser()" [disabled]="!formRemove.form.valid">Eliminar</button>
         </div>
       </div>
     </div>
