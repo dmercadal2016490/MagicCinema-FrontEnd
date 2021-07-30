@@ -52,7 +52,6 @@ export class CarteleraComponent implements OnInit {
       if(res){
         this.peliculas = res.peliculas.peliculas
         localStorage.setItem('peliculas', JSON.stringify(this.peliculas));
-        console.log(res.peliculas.peliculas);
       }else{
         alert(res.message);
       }
