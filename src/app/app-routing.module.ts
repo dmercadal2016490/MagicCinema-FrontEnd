@@ -12,6 +12,7 @@ import { CinesHomeComponent } from './components/cines-home/cines-home.component
 import { SaveUserComponent } from './components/save-user/save-user.component';
 import { CarteleraComponent } from './components/cartelera/cartelera.component';
 import { GolosinasComponent } from './components/golosinas/golosinas.component';
+import { AddMovieComponent } from './components/add-movie/add-movie.component';
 
 const routes: Routes = [
   {path:'', component:IndexComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'saveUser', component: SaveUserComponent},
   {path:'cartelera', component:CarteleraComponent},
   {path:'golosinas', component:GolosinasComponent},
+  {path:'addMovie', component:AddMovieComponent},
   {path:'**',component:NotFoundComponent},
 ];
 

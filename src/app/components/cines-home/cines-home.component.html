@@ -10,7 +10,7 @@
         </div>
 
         <div class="d-grid gap-2 col-2 mx-auto">
-            <button class="btn btn-primary btn-sm" type="button" (click)="obtenerData(cines)" id="verCinebtn">Ver Cartelera</button>
+            <button class="btn btn-primary btn-sm" type="button" (click)="obtenerData(cines)" id="verCinebtn" routerLink="/cartelera">Ver Cartelera</button>
             <button class="btn btn-success btn-sm" (click)="obtenerData(cines)" type="button" *ngIf="user._id == cines.admin" id="verCinebtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Editar</button>
             <button class="btn btn-danger btn-sm" (click)="obtenerData(cines)" type="button" *ngIf="user.role == 'ROLE_ADMIN'" id="verCinebtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal" *ngIf="user._id == cines.admin" (click)="obtenerData(cines)">

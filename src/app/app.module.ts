@@ -19,6 +19,7 @@ import { CinesHomeComponent } from './components/cines-home/cines-home.component
 import { SaveUserComponent } from './components/save-user/save-user.component';
 import { CarteleraComponent } from './components/cartelera/cartelera.component';
 import { GolosinasComponent } from './components/golosinas/golosinas.component';
+import { AddMovieComponent } from './components/add-movie/add-movie.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { GolosinasComponent } from './components/golosinas/golosinas.component';
     CinesHomeComponent,
     SaveUserComponent,
     CarteleraComponent,
-    GolosinasComponent
+    GolosinasComponent,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,

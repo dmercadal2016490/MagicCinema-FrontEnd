@@ -8,6 +8,7 @@ import { RestUserService } from '../restUser/rest-user.service';
   providedIn: 'root'
 })
 export class RestCineService {
+  cine;
 
   public uri:string
   public httpOptions ={
@@ -52,5 +53,20 @@ export class RestCineService {
   deleteCine(idAdmin, idCine){
     return this.http.delete(this.uri+idAdmin+'/deleteCine/'+idCine, this.httpOptionsAuth)
     .pipe(map(this.extractData))
+  }
+
+  verMovies(idCine){
+    return this.http.get(this.uri+'/getMoviees/'+idCine,this.httpOptions)
+    .pipe(map(this.extractData))
+  }
+
+  getCine(){
+    let cine = JSON.parse(localStorage.getItem('cineSelected'));
+    if(cine != undefined || cine != null){
+      this.cine = cine;
+    }else{
+      this.cine = null
+    }
+    return this.cine;
   }
 }

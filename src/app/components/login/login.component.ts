@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
         this.userLogged = res.user;
         this.token = res.token;
         delete this.userLogged.password;
+        localStorage.setItem('movieSelected', '{"asientos":[],"_id":"60fae3c476c00b05cc02a57e","name":"logan","sinopsis":"Ultima pelicula de Wolverine","clasificacion":"+18","categoria":"Accion","estado":"Disponible","__v":0,"image":"6jD23MmqwbqyGEaTKzOnT8c3.jpg"}')
         if(this.token.length <= 0){
           alert('El token no se genero correctamente');
         }else{

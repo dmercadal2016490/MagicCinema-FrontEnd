@@ -4,6 +4,10 @@ import { Cine } from 'src/app/models/cine';
 import { CONNECTION } from 'src/app/services/global';
 import { ResourceLoader } from '@angular/compiler';
 import { RestCineService } from 'src/app/services/restCine/rest-cine.service';
+import { Router } from '@angular/router';
+import { RestUserService } from 'src/app/services/restUser/rest-user.service';
+import { UploadImageService } from 'src/app/services/uploadImage/upload-image.service';
+
 
 @Component({
   selector: 'app-cartelera',
@@ -12,9 +16,75 @@ import { RestCineService } from 'src/app/services/restCine/rest-cine.service';
 })
 export class CarteleraComponent implements OnInit {
 
-  constructor() { }
+  constructor(private restCine:RestCineService, private router:Router, private restUser:RestUserService, private uploadImage:UploadImageService) {
+    this.uri = CONNECTION.URI;
+    this.user = this.restUser.getUser;
+  }
+
+  peliculas;
+  pelicula:Pelicula;
+  cine;
+  cineso;
+  cineSelected:Cine;
+  movieSelected:Pelicula;
+  public filesToUpload:Array<File>;
+  public token;
+  message;
+  public uri:string;
+  user;
+
+  
+
 
   ngOnInit(): void {
+    this.cine = this.restCine.getCine();
+    this.cineSelected = JSON.parse(localStorage.getItem('cineSelected'));
+    this.movieSelected = JSON.parse(localStorage.getItem('movieSelected'));
+    this.peliculas = localStorage.getItem('peliculas');
+    this.verMovies();
+    this.pelicula = new Pelicula('','','','','','','','',[]);
+    this.user = this.restUser.getUser();
+    this.token = this.restUser.getToken();
   }
+
+  verMovies(){
+    this.restCine.verMovies(this.cine._id).subscribe((res:any)=>{
+      if(res){
+        this.peliculas = res.peliculas.peliculas
+        localStorage.setItem('peliculas', JSON.stringify(this.peliculas));
+        console.log(res.peliculas.peliculas);
+      }else{
+        alert(res.message);
+      }
+    })
+  }
+
+  obtenerData(movieSelected){
+    this.pelicula = movieSelected;
+    localStorage.setItem('movieSelected', JSON.stringify(movieSelected));
+    console.log(movieSelected)
+  }
+
+  uploadImageMovie(){
+    this.uploadImage.fileRequesMovie(this.user._id, this.pelicula._id,[], this.filesToUpload,this.token,'image')
+      .then((res:any)=>{
+        if(res.pelicula){
+          this.pelicula.image = res.peliculaImage;
+          localStorage.setItem('movieSelected', JSON.stringify(this.movieSelected))
+          alert('imagen de pelicula subida con exito');
+        }else{
+          alert(res.message)
+        }
+      },
+      (error:any) => alert('Error al subir la imagen' + error)
+      )
+  }
+
+  fileChange(fileInput){
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+    console.log(this.filesToUpload)
+  }
+  
+
 
 }
