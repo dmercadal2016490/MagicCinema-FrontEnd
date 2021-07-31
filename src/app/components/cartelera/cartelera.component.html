@@ -4,9 +4,8 @@
     <h1 class="textoCine">{{cineSelected.name}}</h1>
     <button class="btn btn-success col-lg-3  boton2" routerLink="/addMovie">Agregar pelicula</button>
 
-    <br><br><h1 class="texto1">Acción</h1>
+    <br><br><h1 class="texto1">Peliculas disponibles</h1>
     <div id="cards" style="width: 18rem;" *ngFor="let peliculas of peliculas">
-      <div *ngIf="peliculas.categoria =='Accion'">
         <img *ngIf="peliculas.image == null" src="../../../assets/img/movie.png" class="imagen" alt="Imagen por defecto"><br><br>
         <img *ngIf="peliculas.image" src="{{uri+'/getImageMovie/'+peliculas.image}}" class="imagen" alt="Imagen de pelicula"><br><br>
         <div class="card-body">
@@ -14,42 +13,10 @@
           <button type="button" class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#myModal" *ngIf="user.role == 'ROLE_ADMINCINE'" (click)="obtenerData(peliculas)">
             Subir imagen
           </button>
-        </div>
-      </div>  
+        </div>  
     </div>
 
-    <br><br><h1 class="texto1">Drama</h1>
-    <div id="cards" style="width: 18rem;" *ngFor="let peliculas of peliculas">
-      <div *ngIf="peliculas.categoria =='Drama'">
-        <img *ngIf="peliculas.image == null" src="../../../assets/img/movie.png" class="imagen" alt="Imagen por defecto"><br><br>
-        <img *ngIf="peliculas.image" src="{{uri+'/getImageMovie/'+peliculas.image}}" class="imagen" alt="Imagen de pelicula"><br><br>
-        <button class="btn btn-primary boton" (click)="obtenerData(peliculas)" data-bs-toggle="modal" data-bs-target="#exampleModal">Ver pelicula</button>
-        <button type="button" class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#myModal" *ngIf="user.role == 'ROLE_ADMINCINE'" (click)="obtenerData(peliculas)">
-          Subir imagen
-        </button>
-      </div>
-    </div>
-
-    <br><br><h1 class="texto1">Terror</h1>
-    <div id="cards" style="width: 18rem;" *ngFor="let peliculas of peliculas">
-      <div *ngIf="peliculas.categoria =='Terror'">
-        <img *ngIf="peliculas.image == null" src="../../../assets/img/movie.png" class="imagen" alt="Imagen por defecto"><br><br>
-        <img *ngIf="peliculas.image" src="{{uri+'/getImageMovie/'+peliculas.image}}" class="imagen" alt="Imagen de pelicula"><br><br>
-        <button class="btn btn-primary boton" (click)="obtenerData(peliculas)" data-bs-toggle="modal" data-bs-target="#exampleModal">Ver pelicula</button>
-        <button type="button" class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#myModal" *ngIf="user.role == 'ROLE_ADMINCINE'" (click)="obtenerData(peliculas)">
-          Subir imagen
-        </button>
-      </div>
-    </div>
-
-    <br><br><h1 class="texto1">Comedia</h1>
-    <div id="cards" style="width: 18rem;" *ngFor="let peliculas of peliculas">
-      <div *ngIf="peliculas.categoria =='Comedia'">
-        <img *ngIf="peliculas.image == null" src="../../../assets/img/movie.png" class="imagen" alt="Imagen por defecto"><br><br>
-        <img *ngIf="peliculas.image" src="{{uri+'/getImageMovie/'+peliculas.image}}" class="imagen" alt="Imagen de pelicula"><br><br>
-        <button class="btn btn-primary boton" (click)="obtenerData(peliculas)" data-bs-toggle="modal" data-bs-target="#exampleModal">Ver pelicula</button>
-      </div>
-    </div>
+    
 </body>
 
 
@@ -62,15 +29,15 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <img *ngIf="movieSelected.image == null" src="../../../assets/img/movie.png" class="imagenSeleccionada" alt="Imagen por defecto">
-            <img *ngIf="movieSelected.image" src="{{uri+'/getImageMovie/'+movieSelected.image}}" class="imagenSeleccionada" alt="Imagen de pelicula">
-            <p class="texto5">{{pelicula.clasificacion}}</p><p class="texto6">{{pelicula.categoria}}</p><br><br><hr>
+            <img *ngIf="pelicula.image == null" src="../../../assets/img/movie.png" class="imagenSeleccionada" alt="Imagen por defecto">
+            <img *ngIf="pelicula.image" src="{{uri+'/getImageMovie/'+pelicula.image}}" class="imagenSeleccionada" alt="Imagen de pelicula">
+            <p class="texto5">{{pelicula.clasificacion}}</p><p class="texto6">{{pelicula.categoria}}</p><p class="texto8">{{pelicula.estado}}</p><br><br><hr>
             <h2 class="texto2">Sinopsis:</h2>
             <p class="texto7">{{pelicula.sinopsis}}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Comprar boletos</button>
+          <button *ngIf="pelicula.estado != 'Proximamente'" type="button" class="btn btn-primary">Comprar boletos</button>
         </div>
       </div>
     </div>

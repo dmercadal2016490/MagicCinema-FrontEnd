@@ -1,22 +1,31 @@
-<h1>Agregar pelicula</h1>
-<form (ngSubmit)="onSubmit()" #saveMovie="ngForm" class="form-signin">
-<p>Nombre:</p>
-<input [(ngModel)]="movie.name" id="name" name="name" type="text" placeholder="Nombre de la pelicula">
-<p>Sinopsis:</p>
-<input [(ngModel)]="movie.sinopsis" id="sinopsis" name="sinopsis" type="text" placeholder="Descrpcion de de la pelicula">
-<p>Categoria: </p>
-<select [(ngModel)]="movie.categoria" name="categoria">
-    <option *ngFor="let option of opciones" [value]="option">{{option}}</option>
-</select>
-<p>Clasificacion: </p>
-<select [(ngModel)]="movie.clasificacion" name="clasificacion">
-    <option *ngFor="let option of opciones2" [value]="option">{{option}}</option>
-</select>
-<p>Estado: </p>
-<select [(ngModel)]="movie.estado" name="estado">
-    <option *ngFor="let option of opciones3" [value]="option">{{option}}</option>
-</select>
-<br><br>
-<button type="submit" class="btn btn-success">Guardar pelicula</button>
-<input type="button" class="btn btn-danger" value="Cancelar" routerLink="/cartelera"><br><br>
-</form>
+<body>
+<h1 class="texto1">Agregar pelicula</h1>
+<section class="caja">
+    <div class="contenedor">
+    <form (ngSubmit)="onSubmit()" #saveMovie="ngForm" class="cajaColumna">
+    <svg><rect></rect></svg>
+    <div class="texto">
+    <p class="texto2">Nombre de la pelicula:</p>
+    <input [(ngModel)]="movie.name" id="name" name="name" type="text" placeholder="Nombre de la pelicula"><br><br>
+    <p class="texto2">Sinopsis:</p>
+    <input [(ngModel)]="movie.sinopsis" id="sinopsis" name="sinopsis" type="text" placeholder="Descrpcion de de la pelicula"><br><br>
+    <p class="texto2">Categoria: </p>
+    <select [(ngModel)]="movie.categoria" name="categoria">
+        <option *ngFor="let option of opciones" [value]="option">{{option}}</option>
+    </select><br><br>
+    <p class="texto2">Clasificacion: </p>
+    <select [(ngModel)]="movie.clasificacion" name="clasificacion">
+        <option *ngFor="let option of opciones2" [value]="option">{{option}}</option>
+    </select><br><br>
+    <p class="texto2">Estado: </p>
+    <select [(ngModel)]="movie.estado" name="estado">
+        <option *ngFor="let option of opciones3" [value]="option">{{option}}</option>
+    </select>
+    <br><br>
+    <button type="submit" class="btn btn-success col-lg-3 mx-2">Guardar pelicula</button>
+    <input type="button" class="btn btn-danger col-lg-3 mx-2" value="Cancelar" routerLink="/cartelera"><br><br>
+    </div>
+    </form>
+    </div>
+</section><br>    
+</body>
