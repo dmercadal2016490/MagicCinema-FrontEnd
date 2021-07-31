@@ -13,6 +13,7 @@ import { SaveUserComponent } from './components/save-user/save-user.component';
 import { CarteleraComponent } from './components/cartelera/cartelera.component';
 import { GolosinasComponent } from './components/golosinas/golosinas.component';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
+import { ReservacionComponent } from './components/reservacion/reservacion.component';
 
 const routes: Routes = [
   {path:'', component:IndexComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:'cartelera', component:CarteleraComponent},
   {path:'golosinas', component:GolosinasComponent},
   {path:'addMovie', component:AddMovieComponent},
+  {path:'reservacion', component:ReservacionComponent},
   {path:'**',component:NotFoundComponent},
 ];
 

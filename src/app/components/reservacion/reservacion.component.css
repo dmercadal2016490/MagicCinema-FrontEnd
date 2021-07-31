@@ -1,0 +1,102 @@
+.imagenSeleccionada{
+    height: 230px;
+    width: 170px;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 100px;
+}
+
+.texto1{
+    font-size: 40px;
+    color: honeydew;
+    padding-left: 50px;
+    float: left;
+}
+
+.texto3{
+    color:lightcyan;
+    text-align: center;
+}
+
+body{
+    background-color: #0c0f1d;
+}
+
+#form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+}
+  
+  #form p {
+    text-align: center;
+  }
+  
+  #form label {
+    font-size: 20px;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    color: grey;
+    padding: 10px;
+    height: 50px;
+    width: 100px;
+  }
+  
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi:embed;
+    margin-left: 20px;
+    margin-right: 900px;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: green;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: yellow;
+  }
+ .texto2{
+     color: blue;
+     font-size: 30px;
+     text-align: center;
+     font-family: 'Gill Sans MT';
+ }
+
+input{
+  border-radius: 150px;
+  border-style: solid;
+  font-size: 20px;
+  text-align: center;
+  width: 400px;
+  margin-left: 35%;
+}
+
+.textoAsiento{
+    font-size: 30px;
+    color: skyblue;
+}
+
+.textoAsiento2{
+    font-size: 50px;
+    color: white;
+}
+
+
+.asientos{
+    margin-left: 400px;
+}
+
+.boton{
+    margin-left: 400px;
+}
+
+.boton2{
+    margin-left: 250px;
+}
