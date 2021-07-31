@@ -80,7 +80,7 @@ input{
 
 .textoAsiento{
     font-size: 30px;
-    color: skyblue;
+    color: white;
 }
 
 .textoAsiento2{
@@ -90,11 +90,11 @@ input{
 
 
 .asientos{
-    margin-left: 400px;
+    margin-left: 480px;
 }
 
 .boton{
-    margin-left: 400px;
+    margin-left: 470px;
 }
 
 .boton2{

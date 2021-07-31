@@ -1,22 +1,24 @@
 <body>
-    <h1>Agregar Cine</h1>
-
-    <form #addCine="ngForm" (ngSubmit)="onSubmit(addCine)">
-        <div class="addCine">
-            <div>
-                <label>Nombre</label>
+    <h1 class="texto1">Agregar Cine</h1>
+<section class="caja">
+    <div class="contenedor">
+    <form #addCine="ngForm" (ngSubmit)="onSubmit(addCine)" class="cajaColumna">
+        <svg><rect></rect></svg>
+        <div class="texto">
+                <label class="texto2">Nombre</label>
                 <input class="form-control" [(ngModel)]="cine.name" name="name" type="text" id="inputName" required><br>
-            </div>
-            <div>
-                <label>Dirección</label>
+                <label class="texto2">Dirección</label>
                 <input class="form-control" [(ngModel)]="cine.direccion" name="direccion" type="text" id="inputDirección" required><br>
-            </div>
+                <label class="texto2">Administrador</label>
             <select class="form-select" aria-label="Default select example" [(ngModel)]="cine.admin" name="admin" required>
                 <option selected disabled>Selecciona un administrador</option>
                 <option value="{{admins._id}}" *ngFor="let admins of admins">{{admins.name}} "{{admins.username}}"</option>
-            </select>
+            </select><br><br>
+            <button class="btn btn-primary" type="submit" value="Guardar" [disabled]="!addCine.form.valid" id="boton">Guardar cine</button>
+            <button class="btn btn-danger" routerLink="/cinesHome">Cancelar</button>
         </div>
-        <br>
-        <input type="submit" value="Guardar" class="btn btn-primary" [disabled]="!addCine.form.valid" id="boton">
+        <br><br>
     </form>
+    </div>
+</section>    
 </body>
