@@ -14,22 +14,26 @@ import { CarteleraComponent } from './components/cartelera/cartelera.component';
 import { GolosinasComponent } from './components/golosinas/golosinas.component';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { ReservacionComponent } from './components/reservacion/reservacion.component';
+import { LoggedGuardGuard } from './guards/logged-guard.guard';
+import { LoggedoutGuardGuard } from './guards/loggedout-guard.guard';
+import { AdminGuardGuard } from './guards/admin-guard.guard';
+import { AdminCineGuardGuard } from './guards/admin-cine-guard.guard';
 
 const routes: Routes = [
   {path:'', component:IndexComponent},
-  {path:'index', component:IndexComponent},
-  {path:'login', component:LoginComponent},
-  {path:'register', component:RegisterComponent},
-  {path:'home', component:HomeComponent},
-  {path:'navbar', component:NavbarComponent},
-  {path:'user', component:UserComponent},
-  {path: 'addCine', component: AddCineComponent},
-  {path: 'cinesHome', component: CinesHomeComponent},
-  {path: 'saveUser', component: SaveUserComponent},
-  {path:'cartelera', component:CarteleraComponent},
-  {path:'golosinas', component:GolosinasComponent},
-  {path:'addMovie', component:AddMovieComponent},
-  {path:'reservacion', component:ReservacionComponent},
+  {path:'index',canActivate:[LoggedoutGuardGuard], component:IndexComponent},
+  {path:'login',canActivate:[LoggedoutGuardGuard], component:LoginComponent},
+  {path:'register',canActivate:[LoggedoutGuardGuard], component:RegisterComponent},
+  {path:'home',canActivate:[LoggedGuardGuard], component:HomeComponent},
+  {path:'navbar',canActivate:[LoggedGuardGuard], component:NavbarComponent},
+  {path:'user',canActivate:[LoggedGuardGuard], component:UserComponent},
+  {path: 'addCine',canActivate:[AdminGuardGuard], component: AddCineComponent},
+  {path: 'cinesHome',canActivate:[LoggedGuardGuard], component: CinesHomeComponent},
+  {path: 'saveUser',canActivate:[AdminGuardGuard], component: SaveUserComponent},
+  {path:'cartelera',canActivate:[LoggedGuardGuard], component:CarteleraComponent},
+  {path:'golosinas',canActivate:[LoggedGuardGuard], component:GolosinasComponent},
+  {path:'addMovie',canActivate:[AdminCineGuardGuard] ,component:AddMovieComponent},
+  {path:'reservacion',canActivate:[LoggedGuardGuard], component:ReservacionComponent},
   {path:'**',component:NotFoundComponent},
 ];
 
