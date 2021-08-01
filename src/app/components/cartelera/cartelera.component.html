@@ -2,7 +2,7 @@
     <br><img *ngIf="cineSelected.image" src="{{uri+'getImageCine/'+cineSelected.image}}" class="imagenCine" alt="imagen del cine">
     <img *ngIf="cineSelected.image == null" src="../../../assets/img/cine.jpg" class="imagenCine" alt="Imagen por defecto">
     <h1 class="textoCine">{{cineSelected.name}}</h1>
-    <button *ngIf="user.role =='ROLE_ADMINCINE'" class="btn btn-success col-lg-3  boton2" routerLink="/addMovie">Agregar pelicula</button>
+    <button *ngIf="user._id ==cineSelected.admin" class="btn btn-success col-lg-3  boton2" routerLink="/addMovie">Agregar pelicula</button>
 
     <br><br><h1 class="texto1">Peliculas disponibles</h1>
     <div id="cards" style="width: 18rem;" *ngFor="let peliculas of peliculas">
@@ -10,8 +10,14 @@
         <img *ngIf="peliculas.image" src="{{uri+'/getImageMovie/'+peliculas.image}}" class="imagen" alt="Imagen de pelicula"><br><br>
         <div class="card-body">
           <button class="btn btn-primary boton" (click)="obtenerData(peliculas)" data-bs-toggle="modal" data-bs-target="#exampleModal">Ver pelicula</button><br><br>
-          <button type="button" class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#myModal" *ngIf="user.role == 'ROLE_ADMINCINE'" (click)="obtenerData(peliculas)">
+          <button *ngIf="user._id ==cineSelected.admin" type="button" class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#myModal" (click)="obtenerData(peliculas)">
             Subir imagen
+          </button><br><br>
+          <button *ngIf="user._id ==cineSelected.admin" type="button" class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#editarMovie" (click)="obtenerData(peliculas)">
+            Editar Pelicula
+          </button><br><br>
+          <button *ngIf="user._id ==cineSelected.admin" type="button" class="btn btn-danger boton" data-bs-toggle="modal" data-bs-target="#deleteMovie" (click)="obtenerData(peliculas)">
+            Eliminar Pelicula
           </button>
         </div>  
     </div>   
@@ -61,6 +67,67 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="uploadImageMovie()">Upload</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal editar pelicula-->
+<div class="modal fade" data-bs-backdrop="static" id="editarMovie" tabindex="-1" aria-labelledby="editarMovieLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarTeamLabel">Editar Pelicula: {{pelicula.name}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <br>
+        <form>
+          <label for="inputName">Nombre</label>
+          <input [(ngModel)]="pelicula.name" name="name" #name="ngModel" class="form-control" id="inputName" type="text" placeholder="name" required><br><br>
+          <label for="inputCountry">Sinopsis</label>
+          <input [(ngModel)]="pelicula.sinopsis" name="sinopsis" #sinopsis="ngModel" class="form-control" id="inputCountry" type="text" placeholder="sinopsis" required><br><br>
+          <p for="selectClasificacion">Clasificacion: </p>
+          <select [(ngModel)]="pelicula.clasificacion" name="clasificacion">
+            <option *ngFor="let option of opciones2" [value]="option">{{option}}</option>
+          </select><br><br>
+          <p for="selectCategoria">Categoria: </p>
+          <select [(ngModel)]="pelicula.categoria" name="categoria">
+            <option *ngFor="let option of opciones" [value]="option">{{option}}</option>
+          </select><br><br>
+          <p for="selectEstado">Estado: </p>
+          <select [(ngModel)]="pelicula.estado" name="estado">
+            <option *ngFor="let option of opciones3" [value]="option">{{option}}</option>
+          </select>
+        </form>
+        <br>
+        <div></div>
+        <div class="d-grid gap-2 d-md-block">
+          <br>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="updateMvoie()" data-bs-dismiss="modal">Actualizar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!--Modal para eliminar pelicula-->
+
+<div class="modal fade" id="deleteMovie" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¡Peligro! Esta acción es irreversible</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿De verdad deseas eliminar la pelicula: "{{pelicula.name}}"?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteMovie()">Estoy de Acuerdo</button>
       </div>
     </div>
   </div>

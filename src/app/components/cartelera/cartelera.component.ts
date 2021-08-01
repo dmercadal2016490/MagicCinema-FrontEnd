@@ -4,6 +4,7 @@ import { Cine } from 'src/app/models/cine';
 import { CONNECTION } from 'src/app/services/global';
 import { ResourceLoader } from '@angular/compiler';
 import { RestCineService } from 'src/app/services/restCine/rest-cine.service';
+import { RestMovieService } from 'src/app/services/restMovie/rest-movie.service';
 import { Router } from '@angular/router';
 import { RestUserService } from 'src/app/services/restUser/rest-user.service';
 import { UploadImageService } from 'src/app/services/uploadImage/upload-image.service';
@@ -16,7 +17,7 @@ import { UploadImageService } from 'src/app/services/uploadImage/upload-image.se
 })
 export class CarteleraComponent implements OnInit {
 
-  constructor(private restCine:RestCineService, private router:Router, private restUser:RestUserService, private uploadImage:UploadImageService) {
+  constructor(private restCine:RestCineService, private router:Router, private restUser:RestUserService, private uploadImage:UploadImageService, private restMovie:RestMovieService) {
     this.uri = CONNECTION.URI;
     this.user = this.restUser.getUser;
   }
@@ -32,7 +33,9 @@ export class CarteleraComponent implements OnInit {
   message;
   public uri:string;
   user;
-
+  public opciones = ['Accion', 'Drama', 'Terror', 'Fantasia', 'Comedia', 'Musical'];
+  public opciones2 = ['AA', 'A', 'B', 'B15', 'C', 'D'];
+  public opciones3 = ['Disponible', 'Gran estreno', 'Proximamente'];
   
 
 
@@ -84,6 +87,32 @@ export class CarteleraComponent implements OnInit {
     console.log(this.filesToUpload)
   }
   
+  updateMvoie(){
+    this.restMovie.updateMovie(this.user._id, this.cine._id, this.pelicula._id,this.pelicula).subscribe((res:any)=>{
+      if(res.movieUpdated){
+        alert(res.message);
+        localStorage.setItem('movieSelected', JSON.stringify(res.movieUpdated));
+      }else{
+        alert('No se actualizo la pelicula')
+      }
+    },
+    error=> alert(error.error.message)
+    )
+  }
+
+  deleteMovie(){
+    this.restMovie.deleteMovie(this.user._id, this.cine._id, this.pelicula._id).subscribe((res:any)=>{
+      if(res.movieRemoved){
+        alert(res.message);
+        localStorage.removeItem('movieSelected');
+      }else{
+        alert('Pelicula Eliminada');
+        localStorage.removeItem('movieSelected');
+      }
+    },
+    error=> alert(error.error.message)
+    )
+  }
 
 
 }

@@ -40,4 +40,23 @@ export class RestMovieService {
     return this.http.put(this.uri+idUser+'/addMovie/'+idCine,params,{headers:headers})
       .pipe(map(this.extractData))
   }
+
+  updateMovie(idUser, idCine,idPelicula,movie){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.restUser.getToken()
+    })
+    let params = JSON.stringify(movie);
+    return this.http.put(this.uri+idUser+'/updateMovie/'+idCine+'/'+idPelicula,params,{headers:headers})
+    .pipe(map(this.extractData))
+  }
+
+  deleteMovie(idUser, idCine,idPelicula){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.restUser.getToken()
+    })
+    return this.http.delete(this.uri+idUser+'/deleteMovie/'+idCine+'/'+idPelicula,{headers:headers})
+    .pipe(map(this.extractData))
+  }
 }

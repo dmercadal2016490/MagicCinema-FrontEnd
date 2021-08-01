@@ -36,6 +36,7 @@ export class AddMovieComponent implements OnInit {
         this.router.navigateByUrl('cartelera');
       }else{
         alert(res.message);
+        this.router.navigateByUrl('cartelera');
       }
     },
     error=> alert(error.error.message)

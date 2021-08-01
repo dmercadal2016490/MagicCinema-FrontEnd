@@ -88,3 +88,10 @@ body{
     font-size: 40px;
     font-family: Sans-serif;
 }
+
+select{
+    height: 40px;
+    width: 400px;
+    border-color:black;
+    border-style: solid;
+}
