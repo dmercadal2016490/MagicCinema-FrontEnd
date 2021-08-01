@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Cine } from 'src/app/models/cine';
 import { RestCineService } from 'src/app/services/restCine/rest-cine.service';
 import { RestUserService } from 'src/app/services/restUser/rest-user.service';
-import { createPopper } from '@popperjs/core/lib/createPopper';
+
 import { UploadImageService } from 'src/app/services/uploadImage/upload-image.service';
 import { CONNECTION } from 'src/app/services/global';
 

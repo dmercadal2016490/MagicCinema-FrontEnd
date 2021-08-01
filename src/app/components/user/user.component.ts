@@ -40,6 +40,10 @@ export class UserComponent implements OnInit {
       })
   }
 
+  refreshPage() {
+    window.location.reload();
+   }
+
   fileChange(fileInput){
     this.filesToUpload = <Array<File>>fileInput.target.files;
     console.log(this.filesToUpload)
@@ -50,9 +54,10 @@ export class UserComponent implements OnInit {
     delete this.user.password;
     delete this.user.role;
     this.restUser.updateUser(this.user).subscribe((res:any)=>{
-      if(res.userActualizar){
+      if(res.userUpdated){
         delete res.userUpdated.password;
-        localStorage.setItem('user', JSON.stringify(this.user));
+        this.user = res.userUpdated;
+        localStorage.setItem('user', JSON.stringify(res.userUpdated));
         alert(res.message);
       }else{
         alert(res.message);
