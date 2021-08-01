@@ -124,14 +124,5 @@ h1{
     letter-spacing: 4px;
     overflow: hidden;
     margin-right: 50px;
-}
-
-h2{
-    color: white;
-    text-align: center;
-}
-
-h2::after{
-    color: white;
-    text-align: center;
+    margin-bottom: 5%;
 }
