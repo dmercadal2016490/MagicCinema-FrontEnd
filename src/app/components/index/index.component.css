@@ -1,6 +1,7 @@
 html{
     background-image: url('../../../assets/img/Fondo.PNG');
     background-size: cover;
+    min-height: 100vh;
 }
 
 .division{

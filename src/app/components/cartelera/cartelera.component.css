@@ -9,6 +9,7 @@
 
 body{
     background-color: #0c0f1d;
+    min-height: 100vh;
 }
 
 .card-header{
@@ -21,6 +22,7 @@ body{
     height: 230px;
     width: 170px;
     margin-left: 80px;
+    
 }
 
 .imagenSeleccionada{

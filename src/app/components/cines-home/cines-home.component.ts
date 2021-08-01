@@ -95,4 +95,8 @@ export class CinesHomeComponent implements OnInit {
     console.log(this.filesToUpload)
   }
 
+  refreshPage() {
+    window.location.reload();
+   }
+   
 }

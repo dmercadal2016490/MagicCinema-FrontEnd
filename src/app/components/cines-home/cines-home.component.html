@@ -24,10 +24,10 @@
         </div>
     </div>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" data-bs-backdrop="true">
-        <div class="offcanvas-header">
+    <div class="offcanvas offcanvas-end" (click)="refreshPage()" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" data-bs-backdrop="true">
+        <div class="offcanvas-header" >
             <h5 id="offcanvasRightLabel">Editar Cine</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"  (click)="refreshPage()"></button>
         </div>
         <div class="offcanvas-body">
             <form>
