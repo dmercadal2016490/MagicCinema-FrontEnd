@@ -5,7 +5,11 @@
     <button *ngIf="user._id ==cineSelected.admin" class="btn btn-success col-lg-3  boton2" routerLink="/addMovie">Agregar pelicula</button>
 
     <br><br><h1 class="texto1">Peliculas disponibles</h1>
-    <div id="cards" style="width: 18rem;" *ngFor="let peliculas of peliculas">
+    <div class="card text-center" id="cards" style="width: 18rem;" *ngFor="let peliculas of peliculas">
+      <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
         <img *ngIf="peliculas.image == null" src="../../../assets/img/movie.png" class="imagen" alt="Imagen por defecto"><br><br>
         <img *ngIf="peliculas.image" src="{{uri+'/getImageMovie/'+peliculas.image}}" class="imagen" alt="Imagen de pelicula"><br><br>
         <div class="card-body">

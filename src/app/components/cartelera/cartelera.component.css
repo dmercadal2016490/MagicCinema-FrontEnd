@@ -1,9 +1,9 @@
-#cards{
+/*#cards{
     margin: 1rem;
     display: inline-block;
     margin: 1.5rem;
     background: transparent;
-}
+}*/
 
 
 
@@ -21,7 +21,6 @@ body{
 .imagen{
     height: 230px;
     width: 170px;
-    margin-left: 80px;
     
 }
 
@@ -45,7 +44,7 @@ body{
 }
 
 .boton{
-    margin-left: 105px;
+    margin-left: 1px;
 }
 
 .boton2{
@@ -96,4 +95,136 @@ select{
     width: 400px;
     border-color:black;
     border-style: solid;
+}
+
+h1{
+    color: #FFF;
+    text-align: center;
+}
+
+input .card{
+    max-width: 20px;
+    width: 20px;
+}
+
+.card{
+    display: inline-block;
+
+    margin-left: 25px;
+    background: transparent;
+    margin-right: 50px;
+}
+
+#imagenCine{
+    margin-top: 20px;
+    /*border: 1px solid rgb(199, 199, 199);*/
+    border-radius: 4px;
+    padding: 10px;
+    width: 290px;
+    height: 230px;
+}
+
+#tituloCine{
+    font-size: 40px;
+    letter-spacing: 7px;
+    font-family: Andale Mono, monospace;
+}
+
+#verCinebtn{
+    margin-bottom: 2px;
+}
+.card:hover{
+    background: #03e9f4;
+    color: transparent;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+
+.card span{
+    position: absolute;
+    display: block;
+}
+.card span:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 1%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,#03e9f4);
+    animation: animate1 1s linear infinite;
+}
+@keyframes animate1{
+    0%{
+        left: -9%;
+    }
+    50%,100%{
+        left: -10%;
+    }
+}
+.card span:nth-child(2){
+    top: 100%;
+    right: 0;
+    width: 1px;
+    height: 2%;
+    background: linear-gradient(180deg,transparent,#03e9f4);
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+@keyframes animate2{
+    0%{
+        top: -12%;
+    }
+    50%,100%{
+        top: 50%;
+    }
+}
+.card span:nth-child(3){
+    bottom: 0;
+    right: 0;
+    width: 2%;
+    height: 1px;
+    background: linear-gradient(270deg,transparent,#03e9f4);
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.50s;
+}
+@keyframes animate3{
+    0%{
+        right: -9%;
+    }
+    50%,100%{
+        right: 90%;
+    }
+}
+
+
+.card span:nth-child(4){
+    bottom: 0%;
+    left: 0;
+    width: 2px;
+    height: 2%;
+    background: linear-gradient(360deg,transparent,#03e9f4);
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+@keyframes animate4{
+    0%{
+        bottom: -12%;
+    }
+    50%,100%{
+        bottom: 50%;
+    }
+}
+
+.card{
+    color: #00b2bb;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 0px;
+    margin-bottom: 0%;
 }
