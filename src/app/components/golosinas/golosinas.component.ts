@@ -53,14 +53,14 @@ export class GolosinasComponent implements OnInit {
   }
 
   uploadImageGolosina(){
-    this.uploadImage.fileRequesGolosina(this.user._id, this.golosinaselected._id,[], this.filesToUpload,this.token,'image')
+    this.uploadImage.fileRequesGolosina(this.user._id, this.golosina._id,[], this.filesToUpload,this.token,'image')
       .then((res:any)=>{
-        if(res.pelicula){
+        if(res.golosina){
           this.golosina.image = res.golosinaImage;
           localStorage.setItem('movieSelected', JSON.stringify(this.golosinaselected))
-          alert('imagen de pelicula subida con exito');
+          alert('imagen de Golosina subida con exito');
         }else{
-          alert(res.message)
+          alert('imagen Subida')
         }
       },
       (error:any) => alert('Error al subir la imagen' + error)
@@ -74,7 +74,7 @@ export class GolosinasComponent implements OnInit {
 
 
   obtenerData(golosinaSelected){
-    this.golosina = this.golosinaselected;
+    this.golosina = golosinaSelected;
     localStorage.setItem('golosinaSelected', JSON.stringify(this.golosinaselected));
     console.log(this.golosinaselected)
   }
