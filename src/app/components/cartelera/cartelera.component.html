@@ -2,25 +2,28 @@
     <br><img *ngIf="cineSelected.image" src="{{uri+'getImageCine/'+cineSelected.image}}" class="imagenCine" alt="imagen del cine">
     <img *ngIf="cineSelected.image == null" src="../../../assets/img/cine.jpg" class="imagenCine" alt="Imagen por defecto">
     <h1 class="textoCine">{{cineSelected.name}}</h1>
+    <div class="text-center">
     <button *ngIf="user._id ==cineSelected.admin" class="btn btn-success col-lg-3  boton2" routerLink="/addMovie">Agregar pelicula</button>
+    <br>
     <button class="btn btn-success col-lg-3  boton2" routerLink="/golosinas">Ver Golosinas</button>
-
-    <br><br><h1 class="texto1">Peliculas disponibles</h1>
-    <div class="card text-center" id="cards" style="width: 18rem;" *ngFor="let peliculas of peliculas">
+  </div>
+    <br><h1 class="texto1">Peliculas disponibles</h1>
+    <div class="card text-center" id="cards" style="width: 11rem;" *ngFor="let peliculas of peliculas">
       <span></span>
         <span></span>
         <span></span>
-        <span></span>
-        <img *ngIf="peliculas.image == null" src="../../../assets/img/movie.png" class="imagen" alt="Imagen por defecto"><br><br>
-        <img *ngIf="peliculas.image" src="{{uri+'/getImageMovie/'+peliculas.image}}" class="imagen" alt="Imagen de pelicula"><br><br>
+        <span></span><br>
+        <img *ngIf="peliculas.image == null" src="../../../assets/img/movie.png" class="imagen" alt="Imagen por defecto"><br>
+        <img *ngIf="peliculas.image" src="{{uri+'/getImageMovie/'+peliculas.image}}" class="imagen" alt="Imagen de pelicula"><br>
         <div class="card-body">
-          <button class="btn btn-primary boton" (click)="obtenerData(peliculas)" data-bs-toggle="modal" data-bs-target="#exampleModal">Ver pelicula</button><br><br>
+          <button class="btn btn-primary boton" (click)="obtenerData(peliculas)" data-bs-toggle="modal" data-bs-target="#exampleModal">Ver pelicula</button>
           <button *ngIf="user._id ==cineSelected.admin" type="button" class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#myModal" (click)="obtenerData(peliculas)">
             Subir imagen
-          </button><br><br>
+          </button>
+          
           <button *ngIf="user._id ==cineSelected.admin" type="button" class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#editarMovie" (click)="obtenerData(peliculas)">
             Editar Pelicula
-          </button><br><br>
+          </button>
           <button *ngIf="user._id ==cineSelected.admin" type="button" class="btn btn-danger boton" data-bs-toggle="modal" data-bs-target="#deleteMovie" (click)="obtenerData(peliculas)">
             Eliminar Pelicula
           </button>

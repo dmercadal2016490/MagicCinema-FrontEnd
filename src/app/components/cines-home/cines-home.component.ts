@@ -69,6 +69,7 @@ export class CinesHomeComponent implements OnInit {
         alert(res.message);
         localStorage.removeItem('cineSelected')
         this.router.navigateByUrl('cinesHome')
+        window.location.reload();
       }else{
         alert(res.message)
       }

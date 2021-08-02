@@ -51,4 +51,9 @@ export class AddCineComponent implements OnInit {
       }
     },error=> alert(error.error.message))
   }
+
+  refreshPage() {
+    window.location.reload();
+   }
 }
+

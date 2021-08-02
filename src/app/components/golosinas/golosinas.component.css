@@ -1,0 +1,140 @@
+body{
+    background-color: #0c0f1d;
+    min-height: 100vh;
+}
+
+.golosinas{
+    text-align: center;
+    color:cornsilk;
+    font-size: 50px;
+}
+
+.imagen{
+    height: 230px;
+    width: 170px;
+}
+
+.imgcine{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    width: 300px;
+}
+
+.textoCine{
+    text-transform: uppercase;
+    text-align: center;
+    color: lightskyblue;
+    font-size: 70px;
+    text-align: center;
+    font-family: Calibri;
+}
+
+input .card{
+    max-width: 20px;
+    width: 20px;
+}
+
+.card{
+    display: inline-block;
+    margin-left: 250px;
+    /*margin-right: 50px;*/
+    margin-top: 20px;
+}
+
+.card:hover{
+    background: #03e9f4;
+    color: #0c0f1d;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+    -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+
+.card span{
+    position: absolute;
+    display: block;
+}
+.card span:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 5px;
+    background: linear-gradient(90deg,transparent,#03e9f4);
+    animation: animate1 2s linear infinite;
+}
+@keyframes animate1{
+    0%{
+        left: -9%;
+    }
+    50%,100%{
+        left: 150%;
+    }
+}
+.card span:nth-child(2){
+    top: 100%;
+    right: 0;
+    width: 5px;
+    height: 10%;
+    background: linear-gradient(180deg,transparent,#03e9f4);
+    animation: animate2 4s linear infinite;
+    /*animation-delay: 0.75s;*/
+}
+@keyframes animate2{
+    0%{
+        top: -12%;
+    }
+    50%,100%{
+        top: 150%;
+    }
+}
+.card span:nth-child(3){
+    bottom: 0;
+    right: 0;
+    width: 10%;
+    height: 5px;
+    background: linear-gradient(270deg,transparent,#03e9f4);
+    animation: animate3 2s linear infinite;
+    /*animation-delay: 0.0;*/
+}
+@keyframes animate3{
+    0%{
+        right: -10%;
+    }
+    50%,100%{
+        right: 100%;
+    }
+}
+
+
+.card span:nth-child(4){
+    bottom: 0%;
+    left: 0;
+    width: 5px;
+    height: 10%;
+    background: linear-gradient(360deg,transparent,#03e9f4);
+    animation: animate4 4s linear infinite;
+    /*animation-delay: 0.75s;*/
+}
+@keyframes animate4{
+    0%{
+        bottom: -10%;
+    }
+    50%,100%{
+        bottom: 150%;
+    }
+}
+
+.card{
+    color: #00b2bb;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 0px;
+    margin-bottom: 0%;
+}
