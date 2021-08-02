@@ -39,9 +39,10 @@ export class ReservacionComponent implements OnInit {
       if(res.userPush){
         alert(res.message);
         localStorage.setItem('user', JSON.stringify(res.userPush))
-        this.route.navigateByUrl('cinesHome')
+        this.route.navigateByUrl('cartelera');
       }else{
         alert(res.message);
+        this.route.navigateByUrl('miReservacion');
       }
     },error=> alert(error.error.message))
   }

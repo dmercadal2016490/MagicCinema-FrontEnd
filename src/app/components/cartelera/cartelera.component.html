@@ -49,7 +49,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button *ngIf="pelicula.estado != 'Proximamente'" type="button" class="btn btn-primary" routerLink="/reservacion" data-bs-dismiss="modal">Comprar boletos</button>
+          <button *ngIf="pelicula.estado != 'Proximamente' && user.role =='ROLE_USER'" type="button" class="btn btn-primary" routerLink="/reservacion" data-bs-dismiss="modal">Comprar boletos</button>
         </div>
       </div>
     </div>

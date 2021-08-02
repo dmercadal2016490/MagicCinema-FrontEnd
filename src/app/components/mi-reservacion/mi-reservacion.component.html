@@ -1,0 +1,10 @@
+<body>
+    <br><br><h1 class="texto1">Mis reservaciones</h1>
+<div class="card text-center" id="cards" style="width: 18rem;" *ngFor="let reserciones of reservaciones">
+    <br><p>{{reserciones._id}}</p>
+    <img src="../../../assets/img/qrcode.png">
+    <p>{{reserciones.fecha}}</p>
+    <p>Total: Q{{reserciones.precio}}</p>
+    <p>Asiento: {{reserciones.asiento}}</p>
+</div>
+</body>

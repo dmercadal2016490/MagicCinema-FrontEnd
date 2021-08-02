@@ -22,6 +22,7 @@ import { GolosinasComponent } from './components/golosinas/golosinas.component';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { ReservacionComponent } from './components/reservacion/reservacion.component';
 import { AddGolosinaComponent } from './components/add-golosina/add-golosina.component';
+import { MiReservacionComponent } from './components/mi-reservacion/mi-reservacion.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AddGolosinaComponent } from './components/add-golosina/add-golosina.com
     GolosinasComponent,
     AddMovieComponent,
     ReservacionComponent,
-    AddGolosinaComponent
+    AddGolosinaComponent,
+    MiReservacionComponent
   ],
   imports: [
     BrowserModule,

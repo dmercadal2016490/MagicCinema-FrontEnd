@@ -24,9 +24,9 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" routerLink="/user">Perfil</a></li>
+                      <li><a class="dropdown-item" *ngIf="user.role == 'ROLE_USER'" routerLink="/miReservacion">Mis Reservaciones</a></li>
                       <li><a *ngIf="user.role == 'ROLE_ADMIN'" class="dropdown-item" routerLink="/saveUser">Agregar Usuario</a></li>
                       <li><a *ngIf="user.role == 'ROLE_ADMIN'" class="dropdown-item" routerLink="/addCine">Agregar Cine</a></li>
-                      <li><a *ngIf="user.role == 'ROLE_ADMINCINE'" class="dropdown-item" routerLink="/administrarCines">Ver mis Cines</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" (click)="logOut()">Cerrar Sesión</a></li>
                     </ul>

@@ -15,6 +15,7 @@ import { GolosinasComponent } from './components/golosinas/golosinas.component';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { ReservacionComponent } from './components/reservacion/reservacion.component';
 import { AddGolosinaComponent } from './components/add-golosina/add-golosina.component';
+import { MiReservacionComponent } from './components/mi-reservacion/mi-reservacion.component';
 import { LoggedGuardGuard } from './guards/logged-guard.guard';
 import { LoggedoutGuardGuard } from './guards/loggedout-guard.guard';
 import { AdminGuardGuard } from './guards/admin-guard.guard';
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path:'golosinas',canActivate:[LoggedGuardGuard], component:GolosinasComponent},
   {path:'addMovie',canActivate:[AdminCineGuardGuard] ,component:AddMovieComponent},
   {path:'addGolosina', canActivate:[AdminCineGuardGuard], component:AddGolosinaComponent},
+  {path:'miReservacion', canActivate:[LoggedGuardGuard], component: MiReservacionComponent},
   {path:'reservacion',canActivate:[LoggedGuardGuard], component:ReservacionComponent},
   {path:'**',component:NotFoundComponent},
 ];

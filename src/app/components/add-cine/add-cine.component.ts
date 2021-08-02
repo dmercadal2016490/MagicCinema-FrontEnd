@@ -34,6 +34,7 @@ export class AddCineComponent implements OnInit {
         alert(res.message);
         this.cine = new Cine('','','','',[],null, null)
         form.reset();
+        this.router.navigateByUrl('cinesHome')
       }else{
         alert(res.message)
       }

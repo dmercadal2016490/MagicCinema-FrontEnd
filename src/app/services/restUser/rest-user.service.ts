@@ -101,4 +101,13 @@ export class RestUserService {
     return this.http.put(this.uri+'deleteUser/'+idUser, {password: password}, {headers: headers})
     .pipe(map(this.extractData))
   }
+
+  getReservaciones(idUser){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.get(this.uri + idUser +'/getReservaciones', {headers:headers})
+    .pipe(map(this.extractData))
+  }
 }
