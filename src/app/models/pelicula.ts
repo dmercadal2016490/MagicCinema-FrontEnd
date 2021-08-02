@@ -7,6 +7,7 @@ export class Pelicula{
         public clasificacion:string,
         public categoria:string,
         public estado:string,
+        public precio:number,
         public fechaEstreno:string,
         public image:string,
         public asientos: []

@@ -22,30 +22,20 @@ body{
     background-color: #0c0f1d;
 }
 
-#form {
-    width: 250px;
-    margin: 0 auto;
-    height: 50px;
+.card{
+  display: inline-block;
+  margin: 2px;
+  text-align:center
+}
+
+.card-title{
+  font-size: 10px;
+}
+
+#btnAsiento{
+  font-size: 10px;
 }
   
-  #form p {
-    text-align: center;
-  }
-  
-  #form label {
-    font-size: 20px;
-  }
-  
-  input[type="radio"] {
-    display: none;
-  }
-  
-  label {
-    color: grey;
-    padding: 10px;
-    height: 50px;
-    width: 100px;
-  }
   
   .clasificacion {
     direction: rtl;
@@ -54,29 +44,12 @@ body{
     margin-right: 900px;
   }
   
-  label:hover,
-  label:hover ~ label {
-    color: green;
-  }
-  
-  input[type="radio"]:checked ~ label {
-    color: yellow;
-  }
  .texto2{
      color: blue;
      font-size: 30px;
      text-align: center;
      font-family: 'Gill Sans MT';
  }
-
-input{
-  border-radius: 150px;
-  border-style: solid;
-  font-size: 20px;
-  text-align: center;
-  width: 400px;
-  margin-left: 35%;
-}
 
 .textoAsiento{
     font-size: 30px;

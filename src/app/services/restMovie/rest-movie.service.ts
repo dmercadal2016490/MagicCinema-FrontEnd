@@ -59,4 +59,8 @@ export class RestMovieService {
     return this.http.delete(this.uri+idUser+'/deleteMovie/'+idCine+'/'+idPelicula,{headers:headers})
     .pipe(map(this.extractData))
   }
+
+  verAsientos(idPelicula){
+    return this.http.get(this.uri+'getAsientos/'+idPelicula, this.httpOptionsAuth)
+  }
 }

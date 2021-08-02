@@ -45,7 +45,7 @@ export class CarteleraComponent implements OnInit {
     this.movieSelected = JSON.parse(localStorage.getItem('movieSelected'));
     this.peliculas = localStorage.getItem('peliculas');
     this.verMovies();
-    this.pelicula = new Pelicula('','','','','','','','',[]);
+    this.pelicula = new Pelicula('','','','','','',null,'','',[]);
     this.user = this.restUser.getUser();
     this.token = this.restUser.getToken();
   }

@@ -1,96 +1,44 @@
 <body>
-<form>
-<img *ngIf="movie.image == null" src="../../../assets/img/movie.png" class="imagenSeleccionada" alt="Imagen por defecto"><br><br>
-<img *ngIf="movie.image" src="{{uri+'/getImageMovie/'+movie.image}}" class="imagenSeleccionada" alt="Imagen de pelicula"><br><br>
-<p class="texto1">{{movie.name}}</p>
-<p class="texto1">{{movie.clasificacion}}</p>
-<p class="texto1">{{movie.categoria}}</p><br><br><br><br><br><br><br><br><br><br><br><br>
-<h1 class="texto3">Escoje tus asientos</h1>
-<div class="asientos">
-    <table>
-        <tr>
-            <th class="textoAsiento2">A</th>
-            <th class="textoAsiento2">B</th>
-            <th class="textoAsiento2">C</th>
-            <th class="textoAsiento2">D</th>
-            <th class="textoAsiento2">E</th>
-        </tr>
-        <tr>
-            <th><input id="radio1" type="radio" name="estrellas1" value="A1"><!--
-            --><label for="radio1" class="textoAsiento">█</label></th>
-            <th><input id="radio2" type="radio" name="estrellas2" value="B1"><!--
-            --><label for="radio2" class="textoAsiento">█</label></th>
-            <th><input id="radio3" type="radio" name="estrellas3" value="C1"><!--
-            --><label for="radio3" class="textoAsiento">█</label></th>
-            <th><input id="radio4" type="radio" name="estrellas4" value="D1"><!--
-            --><label for="radio4" class="textoAsiento">█</label></th>
-            <th><input id="radio5" type="radio" name="estrellas5" value="E1"><!--
-            --><label for="radio5" class="textoAsiento">█</label></th>
-        </tr>
-        <tr>
-            <th><input id="radio6" type="radio" name="estrellas6" value="A2"><!--
-            --><label for="radio6" class="textoAsiento">█</label></th>
-            <th><input id="radio7" type="radio" name="estrellas7" value="B2"><!--
-            --><label for="radio7" class="textoAsiento">█</label></th>
-            <th><input id="radio8" type="radio" name="estrellas8" value="C2"><!--
-            --><label for="radio8" class="textoAsiento">█</label></th>
-            <th><input id="radio9" type="radio" name="estrellas9" value="D2"><!--
-            --><label for="radio9" class="textoAsiento">█</label></th>
-            <th><input id="radio10" type="radio" name="estrellas10" value="E2"><!--
-            --><label for="radio10" class="textoAsiento">█</label></th>
-        </tr>
-        <tr>
-            <th><input id="radio11" type="radio" name="estrellas11" value="A3"><!--
-            --><label for="radio11" class="textoAsiento">█</label></th>
-            <th><input id="radio12" type="radio" name="estrella12" value="B3"><!--
-            --><label for="radio12" class="textoAsiento">█</label></th>
-            <th><input id="radio13" type="radio" name="estrellas13" value="C3"><!--
-            --><label for="radio13" class="textoAsiento">█</label></th>
-            <th><input id="radio14" type="radio" name="estrellas14" value="D3"><!--
-            --><label for="radio14" class="textoAsiento">█</label></th>
-            <th><input id="radio15" type="radio" name="estrellas15" value="E3"><!--
-            --><label for="radio15" class="textoAsiento">█</label></th>
-        </tr>
-        <tr>
-            <th><input id="radio16" type="radio" name="estrellas16" value="A4"><!--
-            --><label for="radio16" class="textoAsiento">█</label></th>
-            <th><input id="radio17" type="radio" name="estrella17" value="B4"><!--
-            --><label for="radio17" class="textoAsiento">█</label></th>
-            <th><input id="radio18" type="radio" name="estrellas18" value="C4"><!--
-            --><label for="radio18" class="textoAsiento">█</label></th>
-            <th><input id="radio19" type="radio" name="estrellas19" value="D4"><!--
-            --><label for="radio19" class="textoAsiento">█</label></th>
-            <th><input id="radio20" type="radio" name="estrellas20" value="E4"><!--
-            --><label for="radio20" class="textoAsiento">█</label></th>
-        </tr>
-        <tr>
-            <th><input id="radio21" type="radio" name="estrellas21" value="A5"><!--
-            --><label for="radio21" class="textoAsiento">█</label></th>
-            <th><input id="radio22" type="radio" name="estrella22" value="B5"><!--
-            --><label for="radio22" class="textoAsiento">█</label></th>
-            <th><input id="radio23" type="radio" name="estrellas23" value="C5"><!--
-            --><label for="radio23" class="textoAsiento">█</label></th>
-            <th><input id="radio24" type="radio" name="estrellas24" value="D5"><!--
-            --><label for="radio24" class="textoAsiento">█</label></th>
-            <th><input id="radio25" type="radio" name="estrellas25" value="E5"><!--
-            --><label for="radio25" class="textoAsiento">█</label></th>
-        </tr>
-        <tr>
-            <th><input id="radio26" type="radio" name="estrellas26" value="A6"><!--
-            --><label for="radio26" class="textoAsiento">█</label></th>
-            <th><input id="radio27" type="radio" name="estrella27" value="B6"><!--
-            --><label for="radio27" class="textoAsiento">█</label></th>
-            <th><input id="radio28" type="radio" name="estrellas28" value="C6"><!--
-            --><label for="radio28" class="textoAsiento">█</label></th>
-            <th><input id="radio29" type="radio" name="estrellas29" value="D6"><!--
-            --><label for="radio29" class="textoAsiento">█</label></th>
-            <th><input id="radio30" type="radio" name="estrellas30" value="E6"><!--
-            --><label for="radio30" class="textoAsiento">█</label></th>
-        </tr>
-    </table>    
-</div><br><br>
-<button class="btn btn-success  boton">Comprar boletos</button>
-<button class="btn btn-danger  boton2" routerLink="/cartelera">Cancelar</button>
-</form><br>
-<p>Grupo 2</p>
+
+    <img *ngIf="movie.image == null" src="../../../assets/img/movie.png" class="imagenSeleccionada" alt="Imagen por defecto"><br><br>
+    <img *ngIf="movie.image" src="{{uri+'/getImageMovie/'+movie.image}}" class="imagenSeleccionada" alt="Imagen de pelicula"><br><br>
+    <p class="texto1">{{movie.name}}</p>
+    <p class="texto1">{{movie.clasificacion}}</p>
+    <p class="texto1">{{movie.categoria}}</p><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h1 class="texto3">Escoje tu asiento</h1>
+
+    <div class="card" style="width: 6rem; height: 6rem;" *ngFor="let asientos of asientos">
+        <div class="card-body">
+        <h5 class="card-title">{{asientos.codAsiento}}</h5>
+        <button id="btnAsiento" class="btn btn-danger btn-sm" *ngIf="asientos.estado == 'Ocupado'" disabled>{{asientos.estado}}</button>
+        <button id="btnAsiento" class="btn btn-success btn-sm" *ngIf="asientos.estado != 'Ocupado'" (click)="obtenerData(asientos)" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"required>{{asientos.estado}}</button>
+        </div>
+    </div>
+    <br>
+    <br>
+
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <form (ngSubmit)="onSubmit()" #reservar="ngForm">
+                <div class="mb-3">
+                    <label for="fechaInput" class="form-label">Fecha</label>
+                    <input [(ngModel)]="reservacion.fecha" name="fecha" type="date" class="form-control" id="fechaInput" required>
+                </div>
+                <div class="mb-3">
+                    <label for="numerInput" class="form-label">Número de Tarjeta</label>
+                    <input [(ngModel)]="reservacion.numeroTarjeta" name="numeroTarjeta" type="number" class="form-control" id="numerInput" required>
+                </div>
+                <div class="mb-3">
+                    <label for="precioInput" class="form-label">Total a pagar</label>
+                    <input value="{{movie.precio}}" name="precio" type="number" class="form-control" id="precioInput" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="asientoInput" class="form-label">Asiento</label>
+                    <input type="text" class="form-control" id="asientoInput" value="{{asiento.codAsiento}}" disabled>
+                </div>
+                <button class="btn btn-success" [disabled]="!reservar.form.valid">Comprar boleto</button>
+                <button class="btn btn-danger" routerLink="/cartelera">Cancelar</button>
+            </form>
+        </div>
+      </div>
 </body>

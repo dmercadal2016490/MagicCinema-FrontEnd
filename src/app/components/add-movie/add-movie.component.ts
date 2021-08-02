@@ -24,7 +24,7 @@ export class AddMovieComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.restUser.getUser();
-    this.movie = new Pelicula('','','','','','','','',[]);
+    this.movie = new Pelicula('','','','','','',null,'','',[]);
     this.cineSelected = JSON.parse(localStorage.getItem('cineSelected'));
   }
 
@@ -38,9 +38,7 @@ export class AddMovieComponent implements OnInit {
         alert(res.message);
         this.router.navigateByUrl('cartelera');
       }
-    },
-    error=> alert(error.error.message)
-    )
+    },error=> alert(error.error.message))
   }
 
 }
