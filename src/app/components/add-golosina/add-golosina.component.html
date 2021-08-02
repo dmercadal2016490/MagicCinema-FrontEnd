@@ -1,0 +1,21 @@
+<body>
+    <h1 class="texto1">Agregar Golosina</h1>
+    <section class="caja">
+        <div class="contenedor">
+        <form (ngSubmit)="onSubmit()" #saveMovie="ngForm" class="cajaColumna">
+        <svg><rect></rect></svg>
+        <div class="texto">
+        <p class="texto2">Nombre de la Golosina:</p>
+        <input [(ngModel)]="golosina.name" id="name" name="name" type="text" placeholder="Nombre de la golosina"><br><br>
+        <p class="texto2">Descripcion:</p>
+        <input [(ngModel)]="golosina.descripcion" id="descripcion" name="descripcion" type="text" placeholder="Descrpcion de de la Golosina"><br><br>
+        <p class="texto2">Precio:</p>
+        <input [(ngModel)]="golosina.precio" id="precio" name="precio" type="number" placeholder="Precio de de la Golosina"><br><br>
+        <br><br>
+        <button type="submit" class="btn btn-success col-lg-3 mx-2">Guardar pelicula</button>
+        <input type="button" class="btn btn-danger col-lg-3 mx-2" value="Cancelar" routerLink="/golosinas"><br><br>
+        </div>
+        </form>
+        </div>
+    </section><br>    
+    </body>

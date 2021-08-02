@@ -9,6 +9,7 @@ import { RestUserService } from '../restUser/rest-user.service';
 })
 export class RestCineService {
   cine;
+  golosina;
 
   public uri:string
   public httpOptions ={
@@ -60,6 +61,11 @@ export class RestCineService {
     .pipe(map(this.extractData))
   }
 
+  verGolosinas(idCine){
+    return this.http.get(this.uri+'/getGolosinas/'+idCine,this.httpOptions)
+    .pipe(map(this.extractData))
+  }
+
   getCine(){
     let cine = JSON.parse(localStorage.getItem('cineSelected'));
     if(cine != undefined || cine != null){
@@ -68,5 +74,25 @@ export class RestCineService {
       this.cine = null
     }
     return this.cine;
+  }
+
+  getGolosina(){
+    let golosina = JSON.parse(localStorage.getItem('golosinaSelected'));
+    if(golosina != undefined || golosina != null){
+      this.golosina = golosina;
+    }else{
+      this.golosina = null
+    }
+    return this.golosina;
+  }
+
+  addGolosina(idUser, idCine, golosina){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.restUser.getToken()
+    })
+    let params = JSON.stringify(golosina);
+    return this.http.put(this.uri+idUser+'/addGolosina/'+idCine,params,{headers:headers})
+      .pipe(map(this.extractData))
   }
 }

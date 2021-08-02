@@ -1,1 +1,15 @@
-<p>golosinas works!</p>
+<body>
+    <br><img *ngIf="cineSelected.image" src="{{uri+'getImageCine/'+cineSelected.image}}" alt="imagen del cine">
+    <img *ngIf="cineSelected.image == null" src="../../../assets/img/cine.jpg" alt="Imagen por defecto">
+    <h1 class="textoCine">{{cineSelected.name}}</h1>
+    <button *ngIf="user._id ==cineSelected.admin" class="btn btn-success col-lg-3  boton2" routerLink="/addGolosina">Agregar Golosina</button>
+
+    <br><br><h1>Golosinas disponibles</h1>
+    <div class="card text-center" id="cards" style="width: 18rem;" *ngFor="let golosinas of golosinas">
+    <img *ngIf="golosinas.image == null" src="../../../assets/img/golosinas.png"  alt="Imagen por defecto"><br><br>
+    <img *ngIf="golosinas.image" src="{{uri+'/getImageGolosina/'+golosinas.image}}" alt="Imagen de pelicula"><br><br>
+    <p>{{golosinas.name}}</p>
+    <p>{{golosinas.descripcion}}</p>
+    <p>Precio: Q{{golosinas.precio}}</p>
+    </div>
+</body>
